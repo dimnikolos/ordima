@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+#original from https://gist.github.com/nag4/ccea3b87bce3d2495bd2
 from PIL import Image
 from datetime import date
 import os
