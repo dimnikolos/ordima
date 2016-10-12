@@ -8,7 +8,7 @@ import shutil
 import filecmp
 
 # exists src_dir/hoge.jpg, fuga.png, etc...
-src_dir = u'F:\ARXEIA_ROULAS\ΦΩΤΟΓΡΑΦΙΕΣ ΑΠΟ ΡΟΥΛΑ'
+src_dir = "f:\photos"
 # create dst_dir/yyyymmdd/
 dst_dir = "e:\photos"
 
