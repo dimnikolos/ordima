@@ -30,7 +30,7 @@ for root, dirs, files in os.walk(src_dir):
             xinfo = image._getexif()[36867]
             yyyy, mm = xinfo[:4], xinfo[5:7]
         except Exception as e:
-            timec = os.path.getctime(fullFilename)
+            timec = os.path.getmtime(fullFilename)
             yyyy = date.fromtimestamp(timec).year
             mm   = date.fromtimestamp(timec).month
 
