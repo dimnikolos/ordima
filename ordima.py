@@ -8,15 +8,18 @@ import shutil
 import filecmp
 
 # exists src_dir/hoge.jpg, fuga.png, etc...
-src_dir = "f:\photos"
+src_dir = "G:\\DCIM\\101MSDCF"
 # create dst_dir/yyyymmdd/
-dst_dir = "e:\photos"
+dst_dir = "f:\\photos"
 
 if os.path.exists(dst_dir) == False:
     os.mkdir(dst_dir)
 print src_dir
 for root, dirs, files in os.walk(src_dir):
     print root
+    transfered = 0
+    skipped = 0
+    renamed = 0
     for filename in files:
         fullFilename = os.path.join(root,filename)
         if (filename == "desktop.ini"):
@@ -40,8 +43,13 @@ for root, dirs, files in os.walk(src_dir):
         dst = os.path.join(yyyymmdd_dir, filename)
         if os.path.exists(dst) == False:
             shutil.copy2(fullFilename, dst)
+            transfered += 1
         elif not filecmp.cmp(dst,fullFilename):
             shutil.copy2(fullFilename,
                 os.path.join(dst_dir,yyyymmdd_dir,basename+"1"+extension))
+            renamed += 1
         else:
             print(dst + " exists!")
+            skipped += 1
+print("Transfered: " + str(transfered) + " Renamed: " + str(renamed) + \
+	" Skipped: " + str(skipped))
